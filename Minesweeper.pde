@@ -113,13 +113,12 @@ public class MSButton
     
     public void mousePressed () 
     {
-        clicked = true;
-        if(mouseButton == RIGHT && marked == false){
+        
+            clicked = true;
+        if(mouseButton == RIGHT){
+            if(isMarked())
+                marked = false;
             marked = true;
-            clicked = false;
-        }
-        if(mouseButton == RIGHT && marked == true){
-            marked = false;
         }
         else if(bombs.contains(this))
             displayLosingMessage();

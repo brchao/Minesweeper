@@ -3,7 +3,7 @@
 import de.bezier.guido.*;
 private final static int NUM_ROWS = 20;
 private final static int NUM_COLS = 20;
-private final static int NUM_BOMBS = 20;
+private final static int NUM_BOMBS = 30;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs = new ArrayList<MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 
@@ -113,13 +113,14 @@ public class MSButton
     
     public void mousePressed () 
     {
-        
             clicked = true;
         if(mouseButton == RIGHT){
-            if(isMarked() == false)
+            if(isMarked() == true){
                 marked = false;
                 clicked = false;
-            marked = true;
+            }
+            else
+                marked = true;
         }
         else if(bombs.contains(this))
             displayLosingMessage();
